@@ -5,4 +5,4 @@ class Settings:
         """Initialize game settings."""
         # Screen settings
         self.screen_width = 1200
-        self.screen_height = 800
+        self.screen_height = 675
