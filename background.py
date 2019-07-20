@@ -10,7 +10,7 @@ class BackgroundImage:
 
         # Loads the image and its rectangles
         self.image = pygame.image.load(
-            'images/galaga_background.png').convert()
+            'Images/galaga_background.png').convert()
         self.rect = self.image.get_rect()
 
         # Load the rectangle representing the game screen.
