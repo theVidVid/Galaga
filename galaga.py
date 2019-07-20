@@ -6,6 +6,8 @@ from background import BackgroundImage
 
 from settings import Settings
 
+from ship import SpaceShip
+
 
 class GalagaGame:
     """Overall class to manage game assets and behavior."""
@@ -17,11 +19,11 @@ class GalagaGame:
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Galaga")
+        self.ship = SpaceShip(self)
 
-        background = BackgroundImage(self.settings, self.screen)
+        self.background = BackgroundImage(self.settings, self.screen)
 
-    @staticmethod
-    def run_game():
+    def run_game(self):
         """Start the main game loop for the game."""
         while True:
             # Watch for keyboard and mouse events.
@@ -29,9 +31,11 @@ class GalagaGame:
 
                 if event.type == pygame.QUIT:
                     sys.exit()
+            self.background.blitme()
+            self.ship.blitme()
 
-                # Make the most recently drawn screen visible.
-                pygame.display.flip()
+            # Make the most recently drawn screen visible.
+            pygame.display.flip()
 
 
 if __name__ == '__main__':

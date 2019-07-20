@@ -9,7 +9,7 @@ class SpaceShip:
         self.screen_rect = ga_game.screen.get_rect()
 
         # Load the ship image and get its rect
-        self.image = pygame.image.load('Images/galaga_spaceship.png')
+        self.image = pygame.image.load('Images/galaga_spaceship.bmp')
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
