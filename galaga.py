@@ -49,6 +49,9 @@ class GalagaGame:
         elif event.key == pygame.K_LEFT:
             # Move the ship to the left
             self.ship.moving_left = True
+        elif event.key == pygame.K_q:
+            # Pressing the 'q' key quits the game.
+            sys.exit()
 
     def _check_keyup_events(self, event):
         """Respond to key releases"""
