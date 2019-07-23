@@ -1,5 +1,7 @@
 import pygame
 
+from missile import Missile
+
 
 class SpaceShip:
     """Class representing the Galaga spaceship."""

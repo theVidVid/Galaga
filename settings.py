@@ -11,4 +11,4 @@ class Settings:
         self.ship_speed = 1.5
 
         # Missile settings
-        self.speed_factor = 3
+        self.speed_factor = 0.25

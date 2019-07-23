@@ -22,7 +22,7 @@ class GalagaGame:
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Galaga")
         self.ship = SpaceShip(self)
-        self.missile = Missile(self)
+        self.missiles = pygame.sprite.Group()
         self.background = BackgroundImage(self.settings, self.screen)
 
     def run_game(self):
@@ -30,7 +30,7 @@ class GalagaGame:
         while True:
             self._check_events()
             self.ship.update()
-            self.missile.update()
+            self.missiles.update()
             self._update_screen()
 
     def _check_events(self):
@@ -52,6 +52,9 @@ class GalagaGame:
         elif event.key == pygame.K_LEFT:
             # Move the ship to the left
             self.ship.moving_left = True
+        elif event.key == pygame.K_SPACE:
+            # Fires a missile
+            self._fire_missile()
         elif event.key == pygame.K_q:
             # Pressing the 'q' key quits the game.
             sys.exit()
@@ -65,10 +68,17 @@ class GalagaGame:
             # Stops the leftward movement of the ship
             self.ship.moving_left = False
 
+    def _fire_missile(self):
+        """Load missile and add it to missiles group."""
+        new_missile = Missile(self)
+        self.missiles.add(new_missile)
+
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.background.blitme()
         self.ship.blitme()
+        for missile in self.missiles.sprites():
+            missile.blitme()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()

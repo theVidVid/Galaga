@@ -20,8 +20,8 @@ class Missile(Sprite):
         self.screen_rect = ga_game.screen.get_rect()
 
         # Set starting position of missile to be on top of ship
-        self.rect.top = self.ship.rect.top
-        self.rect.centerx = self.ship.centerx
+        self.rect.midtop = ga_game.ship.rect.midtop
+        # self.rect.centerx = self.ship.centerx
 
         # Store the missile's position as a decimal value
         self.y = float(self.rect.y)
@@ -29,9 +29,9 @@ class Missile(Sprite):
         # Reference stored missile speed settings
         self.speed_factor = self.settings.speed_factor
 
-    def update(self, screen, ship, missiles):
+    def update(self):
         """Move the missile towards the top of screen."""
-        self.y += self.speed_factor
+        self.y -= self.speed_factor
         self.rect.y = self.y
 
     def blitme(self):
