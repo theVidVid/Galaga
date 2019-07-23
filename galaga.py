@@ -31,12 +31,7 @@ class GalagaGame:
             self._check_events()
             self.ship.update()
             self.missiles.update()
-
-            # Get rid of bullets that have disappeared.
-            for missile in self.missiles.copy():
-                if missile.rect.bottom <= 0:
-                    self.missiles.remove(missile)
-
+            self._update_missile()
             self._update_screen()
 
     def _check_events(self):
@@ -79,6 +74,12 @@ class GalagaGame:
         if len(self.missiles) < self.settings.missiles_allowed:
             new_missile = Missile(self)
             self.missiles.add(new_missile)
+
+    def _update_missile(self):
+        """Update position of missiles and get rid of old missiles."""
+        for missile in self.missiles.copy():
+            if missile.rect.bottom <= 0:
+                self.missiles.remove(missile)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
