@@ -33,6 +33,11 @@ class GalagaGame:
             self.missiles.update()
             self._update_screen()
 
+            # Get rid of bullets that have disappeared.
+            for missile in self.missiles.copy():
+                if missile.rect.bottom <= 0:
+                    self.missiles.remove(missile)
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
