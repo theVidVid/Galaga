@@ -12,4 +12,4 @@ class Settings:
 
         # Missile settings
         self.speed_factor = 1.1
-        self.missiles_allowed = 3
+        self.missiles_allowed = 4

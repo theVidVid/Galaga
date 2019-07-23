@@ -78,7 +78,19 @@ class GalagaGame:
         """Create the fleet of aliens."""
         # Make an alien
         alien = Alien(self)
-        self.aliens.add(alien)
+        alien_width = alien.rect.width
+
+        # Find out the available space for an alien fleet
+        available_space_x = self.settings.screen_width - 2 * alien_width
+        number_aliens_x = available_space_x // (1 * alien_width)
+
+        # Create the first row of aliens
+        for alien_number in range(number_aliens_x):
+            # Create an alien and place it in a row
+            alien = Alien(self)
+            alien.x = alien_width + 1.25 * alien_width * alien_number
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
 
     def _fire_missile(self):
         """Load missile and add it to missiles group."""
