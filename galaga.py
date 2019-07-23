@@ -31,12 +31,13 @@ class GalagaGame:
             self._check_events()
             self.ship.update()
             self.missiles.update()
-            self._update_screen()
 
             # Get rid of bullets that have disappeared.
             for missile in self.missiles.copy():
                 if missile.rect.bottom <= 0:
                     self.missiles.remove(missile)
+
+            self._update_screen()
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -75,8 +76,9 @@ class GalagaGame:
 
     def _fire_missile(self):
         """Load missile and add it to missiles group."""
-        new_missile = Missile(self)
-        self.missiles.add(new_missile)
+        if len(self.missiles) < self.settings.missiles_allowed:
+            new_missile = Missile(self)
+            self.missiles.add(new_missile)
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""

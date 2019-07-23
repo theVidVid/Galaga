@@ -13,7 +13,7 @@ class Missile(Sprite):
         self.settings = ga_game.settings
 
         # Load image of missile and it's rectangle.
-        self.missile = pygame.image.load('Images/missile.png')
+        self.missile = pygame.image.load('Images/sm_missile.png')
         self.rect = self.missile.get_rect()
 
         # Load the rectangle for the game screen.
