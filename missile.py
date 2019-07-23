@@ -21,7 +21,6 @@ class Missile(Sprite):
 
         # Set starting position of missile to be on top of ship
         self.rect.midtop = ga_game.ship.rect.midtop
-        # self.rect.centerx = self.ship.centerx
 
         # Store the missile's position as a decimal value
         self.y = float(self.rect.y)
