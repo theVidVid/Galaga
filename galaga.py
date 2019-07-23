@@ -8,6 +8,8 @@ from settings import Settings
 
 from ship import SpaceShip
 
+from missile import Missile
+
 
 class GalagaGame:
     """Overall class to manage game assets and behavior."""
@@ -20,7 +22,7 @@ class GalagaGame:
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Galaga")
         self.ship = SpaceShip(self)
-
+        self.missile = Missile(self)
         self.background = BackgroundImage(self.settings, self.screen)
 
     def run_game(self):
@@ -28,6 +30,7 @@ class GalagaGame:
         while True:
             self._check_events()
             self.ship.update()
+            self.missile.update()
             self._update_screen()
 
     def _check_events(self):
