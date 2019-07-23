@@ -10,6 +10,8 @@ from ship import SpaceShip
 
 from missile import Missile
 
+from alien import Alien
+
 
 class GalagaGame:
     """Overall class to manage game assets and behavior."""
@@ -23,6 +25,9 @@ class GalagaGame:
         pygame.display.set_caption("Galaga")
         self.ship = SpaceShip(self)
         self.missiles = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
         self.background = BackgroundImage(self.settings, self.screen)
 
     def run_game(self):
@@ -69,6 +74,12 @@ class GalagaGame:
             # Stops the leftward movement of the ship
             self.ship.moving_left = False
 
+    def _create_fleet(self):
+        """Create the fleet of aliens."""
+        # Make an alien
+        alien = Alien(self)
+        self.aliens.add(alien)
+
     def _fire_missile(self):
         """Load missile and add it to missiles group."""
         if len(self.missiles) < self.settings.missiles_allowed:
@@ -87,6 +98,7 @@ class GalagaGame:
         self.ship.blitme()
         for missile in self.missiles.sprites():
             missile.blitme()
+        self.aliens.draw(self.screen)
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
