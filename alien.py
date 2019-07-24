@@ -10,6 +10,7 @@ class GreenWing(Sprite):
         """Initialize the alien and set it's starting position."""
         super().__init__()
         self.screen = ga_game.screen
+        self.settings = ga_game.settings
 
         # Load the alien image and set its rect attribute
         self.image = pygame.image.load('Images/green_enemy.png')
@@ -19,6 +20,10 @@ class GreenWing(Sprite):
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height * 0.05
 
+    def update(self):
+        """Move the alien to the left."""
+        self.x += self.settings.alien_speed
+
 
 class BlueWing(Sprite):
     """Class representing an Alien battleship"""
@@ -26,6 +31,7 @@ class BlueWing(Sprite):
         """Initialize the alien and set it's starting position."""
         super().__init__()
         self.screen = ga_game.screen
+        self.settings = ga_game.settings
 
         # Load the alien image and set its rect attribute
         self.image = pygame.image.load('Images/blue_enemy.png')
@@ -39,6 +45,10 @@ class BlueWing(Sprite):
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
 
+    def update(self):
+        """Move the alien to the right."""
+        self.x -= self.settings.alien_speed
+
 
 class RedWing(Sprite):
     """Class representing an Alien battleship"""
@@ -46,6 +56,7 @@ class RedWing(Sprite):
         """Initialize the alien and set it's starting position."""
         super().__init__()
         self.screen = ga_game.screen
+        self.settings = ga_game.settings
 
         # Load the alien image and set its rect attribute
         self.image = pygame.image.load('Images/red_enemy.png')
@@ -59,6 +70,10 @@ class RedWing(Sprite):
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
 
+    def update(self):
+        """Move the alien to the right."""
+        self.x -= self.settings.alien_speed
+
 
 class TealWing(Sprite):
     """Class representing an Alien battleship"""
@@ -67,6 +82,7 @@ class TealWing(Sprite):
         """Initialize the alien and set it's starting position."""
         super().__init__()
         self.screen = ga_game.screen
+        self.settings = ga_game.settings
 
         # Load the alien image and set its rect attribute
         self.image = pygame.image.load('Images/teal_enemy.png')
@@ -83,3 +99,7 @@ class TealWing(Sprite):
         # Store the alien's exact horizontal and vertical position
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
+
+    def update(self):
+        """Move the alien to the right."""
+        self.x -= self.settings.alien_speed

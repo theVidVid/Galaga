@@ -8,8 +8,11 @@ class Settings:
         self.screen_height = 675
 
         # Ship settings
-        self.ship_speed = 1.5
+        self.ship_speed = 5
 
         # Missile settings
-        self.speed_factor = 1.1
+        self.speed_factor = 5
         self.missiles_allowed = 4
+
+        # Alien settings
+        self.alien_speed = 1.0
