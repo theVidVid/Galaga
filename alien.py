@@ -23,6 +23,7 @@ class GreenWing(Sprite):
     def update(self):
         """Move the alien to the left."""
         self.x += self.settings.alien_speed
+        self.rect.x = self.x
 
 
 class BlueWing(Sprite):
@@ -48,6 +49,7 @@ class BlueWing(Sprite):
     def update(self):
         """Move the alien to the right."""
         self.x -= self.settings.alien_speed
+        self.rect.x = self.x
 
 
 class RedWing(Sprite):
@@ -71,8 +73,9 @@ class RedWing(Sprite):
         self.y = float(self.rect.y)
 
     def update(self):
-        """Move the alien to the right."""
-        self.x -= self.settings.alien_speed
+        """Move the alien to the left."""
+        self.x += self.settings.alien_speed
+        self.rect.x = self.x
 
 
 class TealWing(Sprite):
@@ -103,3 +106,4 @@ class TealWing(Sprite):
     def update(self):
         """Move the alien to the right."""
         self.x -= self.settings.alien_speed
+        self.rect.x = self.x

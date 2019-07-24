@@ -39,6 +39,7 @@ class GalagaGame:
             self.ship.update()
             self.missiles.update()
             self._update_missile()
+            self._update_aliens()
             self._update_screen()
 
     def _check_events(self):
@@ -81,16 +82,12 @@ class GalagaGame:
         # Make a green, blue, red, and teal wing alien
         green_alien = GreenWing(self)
         green_width = green_alien.rect.width
-        green_height = green_alien.rect.height
         blue_alien = BlueWing(self)
         blue_width = blue_alien.rect.width
-        blue_height = blue_alien.rect.height
         red_alien = RedWing(self)
         red_width = red_alien.rect.width
-        red_height = red_alien.rect.height
         teal_alien = TealWing(self)
         teal_width = teal_alien.rect.width
-        teal_height = teal_alien.rect.height
 
         # Find out the available space for an alien fleet
         green_space_x = self.settings.screen_width - 1 * green_width
@@ -145,6 +142,13 @@ class GalagaGame:
         for missile in self.missiles.copy():
             if missile.rect.bottom <= 0:
                 self.missiles.remove(missile)
+
+    def _update_aliens(self):
+        """Update the positions of all aliens."""
+        self.green_aliens.update()
+        self.blue_aliens.update()
+        self.red_aliens.update()
+        self.teal_aliens.update()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
