@@ -11,12 +11,12 @@ class Settings:
         self.ship_speed = 5
 
         # Missile settings
-        self.speed_factor = 5
+        self.speed_factor = 1
         self.missiles_allowed = 4
 
         # Alien settings
         self.alien_speed = 1.0
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 1
 
         # Fleet direction, 1 = right and 0 = left
         self.fleet_direction = 1
